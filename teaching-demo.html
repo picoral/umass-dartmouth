@@ -651,14 +651,14 @@ Adriana Picoral
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource {java} number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>static int lcs(String one, String two, int m, int n,</span>
 <span id="cb9-2"><a href=""></a>                   int[][] memo) {</span>
 <span id="cb9-3"><a href=""></a>        if (m == 0 || n == 0) return 0;</span>
-<span id="cb9-4"><a href=""></a>        if (memo[m][n] != -1) return memo[m][n];</span>
+<span id="cb9-4"><a href=""></a>        if (memo[m][n] &gt; -1) return memo[m][n];</span>
 <span id="cb9-5"><a href=""></a></span>
 <span id="cb9-6"><a href=""></a>        if (one.charAt(m - 1) == two.charAt(n - 1)) {</span>
-<span id="cb9-7"><a href=""></a>            memo[m][n] = 1 + getLcs(one, two, m - 1, n - 1, memo);</span>
+<span id="cb9-7"><a href=""></a>            memo[m][n] = 1 + lcs(one, two, m - 1, n - 1, memo);</span>
 <span id="cb9-8"><a href=""></a>        }</span>
 <span id="cb9-9"><a href=""></a></span>
-<span id="cb9-10"><a href=""></a>        memo[m][n] = Math.max(getLcs(one, two, m, n - 1, memo),</span>
-<span id="cb9-11"><a href=""></a>                              getLcs(one, two, m - 1, n, memo));</span>
+<span id="cb9-10"><a href=""></a>        memo[m][n] = Math.max(lcs(one, two, m, n - 1, memo),</span>
+<span id="cb9-11"><a href=""></a>                              lcs(one, two, m - 1, n, memo));</span>
 <span id="cb9-12"><a href=""></a>        return memo[m][n];</span>
 <span id="cb9-13"><a href=""></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
